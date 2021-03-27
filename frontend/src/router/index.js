@@ -1,22 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
+
+const loadView = name => () => import(`@/views/${name}.vue`)
+const loadLayout = name => () => import(`@/layouts/${name}.vue`)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: loadLayout('Default'),
+    children: [
+      { path: '', name: 'Home', component: loadView('Home')},
+      { path: 'profile', name: 'Profile', component: loadView('Profile'), meta: { userRequired: true }},
+    ]
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/',
+    component: loadLayout('Auth'),
+    children: [
+      { path: 'login', name: 'Login', component: loadView('Auth/Login')},
+      { path: 'registration', name: 'Registration', component: loadView('Auth/Registration')}
+    ]
   }
 ]
 
@@ -25,5 +30,15 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.userRequired)) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      next('/login');
+    }
+  }
+  next()
+});
 
 export default router

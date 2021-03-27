@@ -1,3 +1,8 @@
+to-do
+First functionality will be: 
+* Login/register 
+* User profile: name, surname, birthdate, wight, height, photo, category, right-handed, left-handed
+
 Collections:
 --------------------------------
 
