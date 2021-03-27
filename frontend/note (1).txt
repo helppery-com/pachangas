@@ -1,0 +1,43 @@
+Collections:
+--------------------------------
+
+Audit: 
+created: [date],
+changed: [date]
+
+Player:
+name: ['String'],
+email: ['String'],
+surname: ['String'],
+birthday: ['String'],
+phone: ['String'],
+genre: ['String'],              ++
+leftHanded: ['Boolean'],        ++
+rightCategory: ['String'],
+leftCategory: ['String'],
+federatedLicense: ['String'],
+
+Clubs:
+name: ['String'],
+address: ['String'],
+
+Preferences:
+mixed: ['Boolean'],
+minCaterogy: ['String'],
+maxCaterogy: ['String'],
+clubs: [multiple relation with clubs'],
+
+PachangaCoach:
+player: ['relation with playe'],
+
+Pachanga:
+Date: ['Date'],
+club: ['relation with club'],
+coupleALeft: ['relation with playe'],
+coupleARight: ['relation with playe'],
+coupleBLeft: ['relation with playe'],
+coupleBRight: ['relation with playe'],
+winners: ['relation with players'],
+score: ['string'],
+coach: ['relation with PachangaCoach'],
+
