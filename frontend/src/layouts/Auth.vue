@@ -1,6 +1,6 @@
 <template>
   <div class="root q-gutter-y-md">
-    <div class="root__item text-h3">Pachanga</div>
+    <q-btn class="full-width" style="max-width: 300px;" flat to="/"><div class="root__item text-h3">Pachanga</div></q-btn>
     <div class="root__item">
       <router-view></router-view>
     </div>

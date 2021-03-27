@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/27/2021 6:33:11 PM"
+    "x-generation-date": "03/28/2021 2:36:49 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2387,6 +2387,30 @@
                 "role": {
                   "type": "string"
                 },
+                "name": {
+                  "type": "string"
+                },
+                "surname": {
+                  "type": "string"
+                },
+                "birthdate": {
+                  "type": "string"
+                },
+                "wight": {
+                  "type": "string"
+                },
+                "height": {
+                  "type": "string"
+                },
+                "photo": {
+                  "type": "string"
+                },
+                "righthanded": {
+                  "type": "boolean"
+                },
+                "lefthanded": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -2499,6 +2523,95 @@
                 "type": "string"
               }
             }
+          },
+          "name": {
+            "type": "string"
+          },
+          "surname": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date"
+          },
+          "wight": {
+            "type": "string"
+          },
+          "height": {
+            "type": "string"
+          },
+          "photo": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "righthanded": {
+            "type": "boolean"
+          },
+          "lefthanded": {
+            "type": "boolean"
           }
         }
       },
@@ -2540,6 +2653,28 @@
           },
           "role": {
             "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "surname": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date"
+          },
+          "wight": {
+            "type": "string"
+          },
+          "height": {
+            "type": "string"
+          },
+          "righthanded": {
+            "type": "boolean"
+          },
+          "lefthanded": {
+            "type": "boolean"
           },
           "created_by": {
             "type": "string"

@@ -11,10 +11,10 @@
       <q-input name="password" type="password" outlined v-model="user.password" dense />
     </q-card-section>
     <q-card-section>
-      <q-btn class="full-width" label="Submit" type="submit" color="primary"/>
+      <q-btn class="full-width" label="Login" type="submit" :loading="loading" color="primary"/>
     </q-card-section>
     <q-card-section>
-      <div>Don't have an account? | <router-link to="/registration">Registration</router-link> </div>
+      <div>Don't have an account? <q-btn dense to="/registration" flat color="info">Registration</q-btn> </div>
     </q-card-section>
     </form>
   </q-card>
@@ -29,21 +29,27 @@ export default {
         identifier: '',
         password: ''
       },
-      error: false
+      error: false,
+      loading: false
     }
   },
   methods: {
     async login() {
-      try {
-        const response = await axios.post(`${this.$project.CMS}auth/local`, this.user);
-        if(response.data){
-          this.$store.commit('SET_USER', response.data);
-          this.$router.push('/');
+      this.loading = true;
+      setTimeout(async() => {
+        try {
+          const response = await axios.post(`${this.$project.CMS}auth/local`, this.user);
+            if(response.data){
+              this.$store.commit('SET_USER', response.data);
+              this.$router.push('/');
+              this.loading = false;
+            }
+        } catch (error) {
+          console.log(error.message);
+          this.error = true;
+          this.loading = false;
         }
-      } catch (error) {
-        console.log(error.message);
-        this.error = true;
-      }
+      }, 2000);
     }
   }
 }

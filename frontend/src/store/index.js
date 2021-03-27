@@ -38,6 +38,10 @@ export default new Vuex.Store({
           localStorage.removeItem('token')
         }
       }
+    },
+    logout: async(context) => {
+      localStorage.removeItem('token');
+      window.location.reload()
     }
   },
   getters: {

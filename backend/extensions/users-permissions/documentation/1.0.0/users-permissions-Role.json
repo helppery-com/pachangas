@@ -561,6 +561,30 @@
                 "role": {
                   "type": "string"
                 },
+                "name": {
+                  "type": "string"
+                },
+                "surname": {
+                  "type": "string"
+                },
+                "birthdate": {
+                  "type": "string"
+                },
+                "wight": {
+                  "type": "string"
+                },
+                "height": {
+                  "type": "string"
+                },
+                "photo": {
+                  "type": "string"
+                },
+                "righthanded": {
+                  "type": "boolean"
+                },
+                "lefthanded": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
